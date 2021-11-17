@@ -42,7 +42,7 @@ jobs:
           
       - name: Hello world action step
         id: hello
-        uses: paichayon321/action-helloworld-docker
+        uses: paichayon321/action-helloworld-docker@v1
 
         with:
           who-to-greet: 'Mona the Octocat'
