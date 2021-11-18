@@ -52,7 +52,7 @@ jobs:
 
       - name: Hello world action step from Local
         id: hellolocal
-        uses: ./
+        uses: ./helloAction
 
         with:
           who-to-greet: 'Paichayon Local'
