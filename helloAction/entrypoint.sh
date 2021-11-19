@@ -2,10 +2,10 @@
 set -e
 all_args=$@
 echo "All arg = ${all_args}" 
-echo "Hello $1"
-echo "Var1 = $2"
-echo "Var2 = $3"
-echo "Var3 = $4"
+echo "Hello $2"
+echo "Var1 = $4"
+echo "Var2 = $6"
+echo "Var3 = $8"
 time=$(date)
 echo "::set-output name=time::$time"
 whoami
