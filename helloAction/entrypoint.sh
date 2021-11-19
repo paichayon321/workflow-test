@@ -6,7 +6,7 @@ echo "Hello $2"
 echo "Var1 = $4"
 echo "Var2 = $6"
 echo "Var3 = $8"
-time=$(date)
+time="$(date) - From Local"
 echo "::set-output name=time::$time"
 whoami
 env
