@@ -40,6 +40,7 @@ jobs:
           echo test, and deploy your project.
           
       - name: Step 4 - Run Test Command
-        run: gh
+        run: user=GH_USERNAME repo=REPO_NAME; gh api repos/$user/$repo/actions/runs
+        
                     
           
