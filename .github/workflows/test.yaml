@@ -30,6 +30,7 @@ jobs:
         run: | 
           pwd
           ls -la
+          env
         
       - name: Step 2 - Run a one-line script
         run: echo Hello, world!
