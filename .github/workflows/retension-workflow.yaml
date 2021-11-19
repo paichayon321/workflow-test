@@ -1,4 +1,7 @@
 name: Retension_Workflow_run
+# troubleshoot query/list workflow action run
+# curl -H "Accept: application/vnd.github.v3+json"   https://api.github.com/repos/paichayon321/workflow-test/actions/runs |jq '.workflow_runs[] | .name,.id'
+
 on:
   workflow_dispatch:
     inputs:
@@ -6,7 +9,10 @@ on:
         description: 'Number of workflow runs to keep'
         required: true
         default: "10"
-
+      workflow_name:
+        description: 'workflow_name'
+        required: false
+        default: ""
 
 jobs:
   Retension_CallCustomActionFlow:
