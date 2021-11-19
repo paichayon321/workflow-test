@@ -35,7 +35,8 @@ jobs:
     runs-on: ubuntu-latest'
     strategy:
       matrix:
-        wfname: ['CallCustomActionFlow', 'Retension_Workflow_run']
+       # wfname: ['CallCustomActionFlow', 'Retension_Workflow_run']
+        wfname: [2,6]
     steps:
       - name: Delete workflow runs
         uses: mwigginsdev/delete-oldest-workflow-runs@main
