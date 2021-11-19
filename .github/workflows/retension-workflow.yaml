@@ -15,16 +15,28 @@ on:
         default: ""
 
 jobs:
-#   Retension_ManualWorkflow:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Delete workflow runs
-#         uses: mwigginsdev/delete-oldest-workflow-runs@main
-#         with:
-#           token: ${{ github.token }}
-#           repository: ${{ github.repository }}
-#           keep_minimum_runs: ${{ github.event.inputs.minimumRunsToKeep }}
-#           workflow_name: ${{ github.event.inputs.workflow_name == '' && 'yes' || 'no }}
+  Retension_ManualWorkflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Workflow name condition
+        run: |
+          if ${{ github.event.inputs.workflow_name }} == ''; then
+              # run the one command
+              echo "Blank"
+          else
+              # run the other command
+              echo "Not Blank"
+              wf_name=${{ github.event.inputs.workflow_name }}
+              echo $wf_name
+          fi  
+          
+      - name: Delete workflow runs
+        uses: mwigginsdev/delete-oldest-workflow-runs@main
+        with:
+          token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          keep_minimum_runs: ${{ github.event.inputs.minimumRunsToKeep }}
+          workflow_name: ""
 
   Retension_CallCustomActionFlow:
     runs-on: ubuntu-latest
