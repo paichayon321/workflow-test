@@ -40,10 +40,10 @@ jobs:
           echo test, and deploy your project.
           
       - name: Step 4 - Run Test Command
-        run: |
-          gh auth login --with-token ${{ secrets.GH_ACTIONS_PERSONAL_ACCESS_TOKEN }}
-          user=GH_USERNAME repo=REPO_NAME; gh api repos/$user/$repo/actions/runs
-        
+        run: gh auth login --with-token ${{ secrets.GH_ACTIONS_PERSONAL_ACCESS_TOKEN }}
+          
+      - name: Step 5 - Run Test Command
+        run: user=GH_USERNAME repo=REPO_NAME; gh api repos/$user/$repo/actions/runs
         
                     
           
