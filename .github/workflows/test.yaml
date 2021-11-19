@@ -41,8 +41,7 @@ jobs:
           
       - name: Step 4 - Run Test Command
         run: |
-          export GITHUB_TOKEN=${{ secrets.GH_ACTIONS_PERSONAL_ACCESS_TOKEN }}
-          gh auth login
+          echo ${{ secrets.GH_ACTIONS_PERSONAL_ACCESS_TOKEN }} | gh auth login --with-token
           gh auth status
           
       - name: Step 5 - Run Test Command
