@@ -44,9 +44,9 @@ jobs:
         run: |
           echo ${{ secrets.GH_ACTIONS_PERSONAL_ACCESS_TOKEN }} | gh auth login --with-token
           gh auth status
+          gh api repos/paichayon321/workflow-test/actions/runs
           
-      - name: Step 5 - Run Test Command
-        run: gh api repos/paichayon321/workflow-test/actions/runs
+
         
                     
           
