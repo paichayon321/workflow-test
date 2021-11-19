@@ -20,7 +20,7 @@ on:
 
 jobs:
   Retension_ManualWorkflow:
-    if: '${{ github.event.inputs.workflow_name' != '' }}
+    if: ${{ github.event.inputs.workflow_name != '' }}
     runs-on: ubuntu-latest
     steps:
 #       - name: Check Workflow name condition
@@ -35,7 +35,6 @@ jobs:
 #               wf_name='${{ github.event.inputs.workflow_name }}'
 #               echo $wf_name
 #           fi  
-         
       - name: Delete workflow runs
         uses: mwigginsdev/delete-oldest-workflow-runs@main
         with:
