@@ -13,6 +13,10 @@ on:
         description: 'Workflow_name'
         required: false
         default: ""
+      ManualKeep:
+        description: 'ManualKeep'
+        required: false
+        default: "0"
 
 jobs:
   Retension_ManualWorkflow:
@@ -23,6 +27,7 @@ jobs:
           if ${{ github.event.inputs.workflow_name }} == ''; then
               # run the one command
               echo "Blank"
+              wf_name=""
           else
               # run the other command
               echo "Not Blank"
@@ -35,8 +40,8 @@ jobs:
         with:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
-          keep_minimum_runs: ${{ github.event.inputs.minimumRunsToKeep }}
-          workflow_name: ""
+          keep_minimum_runs: ${{ github.event.inputs.ManualKeep }}
+          workflow_name: $wf_name
 
   Retension_CallCustomActionFlow:
     runs-on: ubuntu-latest
