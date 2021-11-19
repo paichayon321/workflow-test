@@ -31,11 +31,22 @@ jobs:
           keep_minimum_runs: ${{ github.event.inputs.ManualKeep }}
           workflow_name: ${{ github.event.inputs.workflow_name }}
   
-  Retension_ActionFlowList:
-    strategy:
-      matrix:
-        wfname: ['CallCustomActionFlow', 'Retension_Workflow_run']
-    runs-on: ubuntu-latest'
+#   Retension_ActionFlowList:
+#     strategy:
+#       matrix:
+#         wfname: ['CallCustomActionFlow', 'Retension_Workflow_run']
+#     runs-on: ubuntu-latest'
+#     steps:
+#       - name: Delete workflow runs
+#         uses: mwigginsdev/delete-oldest-workflow-runs@main
+#         with:
+#           token: ${{ github.token }}
+#           repository: ${{ github.repository }}
+#           keep_minimum_runs: ${{ github.event.inputs.minimumRunsToKeep }}
+#           workflow_name: ${{ matrix.wfname }}
+          
+  Retension_CallCustomActionFlow:
+    runs-on: ubuntu-latest
     steps:
       - name: Delete workflow runs
         uses: mwigginsdev/delete-oldest-workflow-runs@main
@@ -43,29 +54,18 @@ jobs:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
           keep_minimum_runs: ${{ github.event.inputs.minimumRunsToKeep }}
-          workflow_name: ${{ matrix.wfname }}
-          
-#   Retension_CallCustomActionFlow:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Delete workflow runs
-#         uses: mwigginsdev/delete-oldest-workflow-runs@main
-#         with:
-#           token: ${{ github.token }}
-#           repository: ${{ github.repository }}
-#           keep_minimum_runs: ${{ github.event.inputs.minimumRunsToKeep }}
-#           workflow_name: "CallCustomActionFlow"
+          workflow_name: "CallCustomActionFlow"
 
-#   Retension_Retension_Workflow_run:
-#     runs-on: ubuntu-latest
-#     steps:
-#       - name: Delete workflow runs
-#         uses: mwigginsdev/delete-oldest-workflow-runs@main
-#         with:
-#           token: ${{ github.token }}
-#           repository: ${{ github.repository }}
-#           keep_minimum_runs: ${{ github.event.inputs.minimumRunsToKeep }}
-#           workflow_name: "Retension_Workflow_run"
+  Retension_Retension_Workflow_run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete workflow runs
+        uses: mwigginsdev/delete-oldest-workflow-runs@main
+        with:
+          token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          keep_minimum_runs: ${{ github.event.inputs.minimumRunsToKeep }}
+          workflow_name: "Retension_Workflow_run"
           
 
           
