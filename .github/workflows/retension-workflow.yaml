@@ -41,7 +41,7 @@ jobs:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
           keep_minimum_runs: ${{ github.event.inputs.ManualKeep }}
-          workflow_name: $wf_name
+          workflow_name: ${{ wf_name }}
 
   Retension_CallCustomActionFlow:
     runs-on: ubuntu-latest
