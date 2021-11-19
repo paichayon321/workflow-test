@@ -5,10 +5,10 @@ name: CallCustomActionFlow
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the main branch
-  push:
-    branches: [ main ]
-  pull_request:
-    branches: [ main ]
+  #push:
+  #  branches: [ main ]
+  #pull_request:
+  #  branches: [ main ]
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -40,7 +40,7 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           
-      - name: Hello world action step from repo
+      - name: Step 4 - Call Hello world action from repo
         id: hello
         uses: paichayon321/action-helloworld-docker@v2
 
@@ -51,22 +51,6 @@ jobs:
           var3: >
             --var3text1
             --var3text2
-      # Use the output from the `hello` step from repo
-      - name: Get the output time
+
+      - name: Step 5 - Get the output time from custom action
         run: echo "The time was ${{ steps.hello.outputs.time }}"
-
-      - name: Hello world action step from Local
-        id: hellolocal
-        uses: ./helloAction
-
-        with:
-          who-to-greet: 'Paichayon Local'
-          var1: 'var1Text'
-          var2: 'var2Text'
-          var3: >
-            --var3text1
-            --var3text2
-      # Use the output from the `hello` step from local
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hellolocal.outputs.time }}"
-
