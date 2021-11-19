@@ -46,7 +46,7 @@ jobs:
           gh auth status
           
       - name: Step 5 - Run Test Command
-        run: user=paichayon321 repo=workflow-test; gh api repos/$user/$repo/actions/runs
+        run: gh api repos/paichayon321/workflow-test/actions/runs
         
                     
           
