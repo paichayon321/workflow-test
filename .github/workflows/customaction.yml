@@ -46,6 +46,11 @@ jobs:
 
         with:
           who-to-greet: 'Mona the Octocat'
+          var1: 'var1Text'
+          var2: 'var2Text'
+          var3: >
+            --var3text1
+            --var3text2
       # Use the output from the `hello` step from repo
       - name: Get the output time
         run: echo "The time was ${{ steps.hello.outputs.time }}"
