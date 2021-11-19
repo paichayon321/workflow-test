@@ -1,4 +1,4 @@
-name: Retension Workflow run
+name: Retension_Workflow_run
 on:
   workflow_dispatch:
     inputs:
@@ -29,7 +29,7 @@ jobs:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
           keep_minimum_runs: ${{ github.event.inputs.minimumRunsToKeep }}
-          workflow_name: "Retension Workflow run"
+          workflow_name: "Retension_Workflow_run"
           
           
           
