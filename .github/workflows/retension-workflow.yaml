@@ -34,7 +34,7 @@ jobs:
   Retension_ActionFlowList:
     strategy:
       matrix:
-        wfname: ['CallCustomActionFlow', 'CallCustomLocal', 'Retension_Workflow_run', 'TestActionFlow']
+        wfname: ['CallCustomActionFlow', 'Retension_Workflow_run']
     runs-on: ubuntu-latest'
     steps:
       - name: Delete workflow runs
