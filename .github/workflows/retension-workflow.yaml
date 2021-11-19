@@ -24,14 +24,14 @@ jobs:
     steps:
       - name: Check Workflow name condition
         run: |
-          if ${{ github.event.inputs.workflow_name }} == ''; then
+          if '${{ github.event.inputs.workflow_name }}' == ''; then
               # run the one command
               echo "Blank"
               wf_name=""
           else
               # run the other command
               echo "Not Blank"
-              wf_name=${{ github.event.inputs.workflow_name }}
+              wf_name='${{ github.event.inputs.workflow_name }}'
               echo $wf_name
           fi  
           
