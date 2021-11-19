@@ -59,7 +59,7 @@ jobs:
           var1: 'var1Text'
           var2: 'var2Text'
           var3: >
-            --var2text1
+            --var3text1
             --var3text2
       # Use the output from the `hello` step from local
       - name: Get the output time
