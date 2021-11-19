@@ -10,11 +10,22 @@ on:
         required: true
         default: "10"
       workflow_name:
-        description: 'workflow_name'
+        description: 'Workflow_name'
         required: false
         default: ""
 
 jobs:
+  Retension_ManualWorkflow:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete workflow runs
+        uses: mwigginsdev/delete-oldest-workflow-runs@main
+        with:
+          token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          keep_minimum_runs: ${{ github.event.inputs.minimumRunsToKeep }}
+          workflow_name: ${{ github.event.inputs.workflow_name == '' && 'yes' || 'no }}
+
   Retension_CallCustomActionFlow:
     runs-on: ubuntu-latest
     steps:
