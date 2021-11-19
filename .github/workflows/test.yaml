@@ -46,7 +46,7 @@ jobs:
           gh auth status
           
       - name: Step 5 - Run Test Command
-        run: user=${{ GITHUB_ACTOR }} repo=${{ GITHUB_REPOSITORY }}; gh api repos/$user/$repo/actions/runs
+        run: user=$GITHUB_ACTOR repo=$GITHUB_REPOSITORY; gh api repos/$user/$repo/actions/runs
         
                     
           
