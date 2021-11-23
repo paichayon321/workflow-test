@@ -4,8 +4,8 @@ name: Retension_Workflow_run
 
 on:
 #Set schedule
-  schedule:
-    - cron: '*/5 * * * *'
+#   schedule:
+#     - cron: '*/5 * * * *'
 #Run Manual
   workflow_dispatch:
     inputs:
