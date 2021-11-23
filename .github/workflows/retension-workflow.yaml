@@ -4,8 +4,8 @@ name: Retension_Workflow_run
 
 on:
 #Set schedule
-#   schedule:
-#     - cron: '*/5 * * * *'
+  schedule:
+    - cron: '*/5 * * * *'
 #Run Manual
   workflow_dispatch:
     inputs:
@@ -47,6 +47,21 @@ jobs:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
           keep_minimum_runs: ${{ github.event.inputs.minimumRunsToKeep }}
+          workflow_name: ${{ matrix.wfname }}
+          
+  Schedule_Retension_ActionFlowList:
+    strategy:
+      matrix:
+        wfname: ['Retension_Workflow_run', 'CallCustomLocal', 'CallCustomActionFlow', 'TestActionFlow' ]
+    if: ${{ github.event.inputs.minimumRunsToKeep = '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete workflow runs
+        uses: paichayon321/action-delete-workflow-runs@main 
+        with:
+          token: ${{ github.token }}
+          repository: ${{ github.repository }}
+          keep_minimum_runs: 10
           workflow_name: ${{ matrix.wfname }}
           
 #   Retension_CallCustomActionFlow:
