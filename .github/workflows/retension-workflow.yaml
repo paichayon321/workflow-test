@@ -50,10 +50,11 @@ jobs:
           workflow_name: ${{ matrix.wfname }}
           
   Schedule_Retension_ActionFlowList:
+    if: ${{ github.event.inputs.minimumRunsToKeep = '' }}
     strategy:
       matrix:
         wfname: ['Retension_Workflow_run', 'CallCustomLocal', 'CallCustomActionFlow', 'TestActionFlow' ]
-    if: ${{ github.event.inputs.minimumRunsToKeep = '' }}
+
     runs-on: ubuntu-latest
     steps:
       - name: Delete workflow runs
@@ -61,7 +62,7 @@ jobs:
         with:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
-          keep_minimum_runs: 10
+          keep_minimum_runs: '10'
           workflow_name: ${{ matrix.wfname }}
           
 #   Retension_CallCustomActionFlow:
