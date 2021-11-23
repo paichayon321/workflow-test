@@ -7,20 +7,20 @@ on:
   schedule:
     - cron: '0 0 1 * *'
 #Run Manual
-#   workflow_dispatch:
-#     inputs:
-#       minimumRunsToKeep:
-#         description: 'Number of workflow runs to keep'
-#         required: true
-#         default: "10"
-#       workflow_name:
-#         description: 'Workflow_name'
-#         required: false
-#         default: ""
-#       ManualKeep:
-#         description: 'ManualKeep'
-#         required: false
-#         default: "0"
+  workflow_dispatch:
+    inputs:
+      minimumRunsToKeep:
+        description: 'Number of workflow runs to keep'
+        required: true
+        default: "10"
+      workflow_name:
+        description: 'Workflow_name'
+        required: false
+        default: ""
+      ManualKeep:
+        description: 'ManualKeep'
+        required: false
+        default: "0"
 
 jobs:
   Retension_ManualWorkflow:
