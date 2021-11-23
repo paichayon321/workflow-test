@@ -49,21 +49,21 @@ jobs:
           keep_minimum_runs: ${{ github.event.inputs.minimumRunsToKeep }}
           workflow_name: ${{ matrix.wfname }}
           
-  Schedule_Retension_ActionFlowList:
-    if: ${{ github.event.inputs.minimumRunsToKeep = '' }}
-    strategy:
-      matrix:
-        wfname: ['Retension_Workflow_run', 'CallCustomLocal', 'CallCustomActionFlow', 'TestActionFlow' ]
+#   Schedule_Retension_ActionFlowList:
+#     if: ${{ github.event.inputs.minimumRunsToKeep = '' }}
+#     strategy:
+#       matrix:
+#         wfname: ['Retension_Workflow_run', 'CallCustomLocal', 'CallCustomActionFlow', 'TestActionFlow' ]
 
-    runs-on: ubuntu-latest
-    steps:
-      - name: Delete workflow runs
-        uses: paichayon321/action-delete-workflow-runs@main 
-        with:
-          token: ${{ github.token }}
-          repository: ${{ github.repository }}
-          keep_minimum_runs: '10'
-          workflow_name: ${{ matrix.wfname }}
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Delete workflow runs
+#         uses: paichayon321/action-delete-workflow-runs@main 
+#         with:
+#           token: ${{ github.token }}
+#           repository: ${{ github.repository }}
+#           keep_minimum_runs: '10'
+#           workflow_name: ${{ matrix.wfname }}
           
 #   Retension_CallCustomActionFlow:
 #     runs-on: ubuntu-latest
