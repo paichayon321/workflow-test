@@ -65,7 +65,7 @@ jobs:
         with:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
-          keep_minimum_runs: '10'
+          keep_minimum_runs: 10
           workflow_name: ${{ matrix.wfname }}
           
 #   Retension_CallCustomActionFlow:
