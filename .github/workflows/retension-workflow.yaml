@@ -24,7 +24,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Delete workflow runs
-        uses: mwigginsdev/delete-oldest-workflow-runs@main
+        #uses: mwigginsdev/delete-oldest-workflow-runs@main
+        uses: paichayon321/action-delete-workflow-runs@main        
         with:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
@@ -38,7 +39,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Delete workflow runs
-        uses: mwigginsdev/delete-oldest-workflow-runs@main
+        #uses: mwigginsdev/delete-oldest-workflow-runs@main
+        uses: paichayon321/action-delete-workflow-runs@main 
         with:
           token: ${{ github.token }}
           repository: ${{ github.repository }}
