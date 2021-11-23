@@ -1,4 +1,4 @@
-name: Retension_Workflow_run
+name: Retention_Workflow_run
 # troubleshoot query/list workflow action run
 # curl -H "Accept: application/vnd.github.v3+json"   https://api.github.com/repos/paichayon321/workflow-test/actions/runs |jq '.workflow_runs[] | .name,.id'
 
@@ -26,7 +26,7 @@ on:
         default: "0"
 
 jobs:
-  Retension_Force_ManualFlow:
+  Retention_Force_ManualFlow:
     if: ${{ github.event.inputs.workflow_name != '' }}
     runs-on: ubuntu-latest
     steps:
@@ -38,11 +38,11 @@ jobs:
           keep_minimum_runs: ${{ github.event.inputs.ManualKeep }}
           workflow_name: ${{ github.event.inputs.workflow_name }}
   
-  Retension_ManualFlow_Withlist:
+  Retention_ManualFlow_Withlist:
     if: ${{ github.event.inputs.minimumRunsToKeep != '' &&  github.event.inputs.workflow_name == '' }}
     strategy:
       matrix:
-        wfname: ['Retension_Workflow_run', 'CallCustomLocal', 'CallCustomActionFlow', 'TestActionFlow' ]
+        wfname: ['Retention_Workflow_run', 'CallCustomLocal', 'CallCustomActionFlow', 'TestActionFlow' ]
     runs-on: ubuntu-latest
     steps:
       - name: Delete workflow runs
@@ -53,11 +53,11 @@ jobs:
           keep_minimum_runs: ${{ github.event.inputs.minimumRunsToKeep }}
           workflow_name: ${{ matrix.wfname }}
           
-  Schedule_Retension_ManualFlow_Withlist:
+  Schedule_Retention_ManualFlow_Withlist:
     if: ${{ github.event.inputs.minimumRunsToKeep == '' }}
     strategy:
       matrix:
-        wfname: ['Retension_Workflow_run', 'CallCustomLocal', 'CallCustomActionFlow', 'TestActionFlow' ]
+        wfname: ['Retention_Workflow_run', 'CallCustomLocal', 'CallCustomActionFlow', 'TestActionFlow' ]
     runs-on: ubuntu-latest
     steps:
       - name: Delete workflow runs
@@ -68,7 +68,7 @@ jobs:
           keep_minimum_runs: 10
           workflow_name: ${{ matrix.wfname }}
           
-#   Retension_CallCustomActionFlow:
+#   Retention_CallCustomActionFlow:
 #     runs-on: ubuntu-latest
 #     steps:
 #       - name: Delete workflow runs
@@ -79,7 +79,7 @@ jobs:
 #           keep_minimum_runs: ${{ github.event.inputs.minimumRunsToKeep }}
 #           workflow_name: "CallCustomActionFlow"
 
-#   Retension_Retension_Workflow_run:
+#   Retention_Retention_Workflow_run:
 #     runs-on: ubuntu-latest
 #     steps:
 #       - name: Delete workflow runs
@@ -88,7 +88,7 @@ jobs:
 #           token: ${{ github.token }}
 #           repository: ${{ github.repository }}
 #           keep_minimum_runs: ${{ github.event.inputs.minimumRunsToKeep }}
-#           workflow_name: "Retension_Workflow_run"
+#           workflow_name: "Retention_Workflow_run"
           
 
           
