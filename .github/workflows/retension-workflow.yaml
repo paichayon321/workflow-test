@@ -36,6 +36,7 @@ jobs:
           workflow_name: ${{ github.event.inputs.workflow_name }}
   
   Retension_ActionFlowList:
+    if: ${{ github.event.inputs.minimumRunsToKeep != '' }}
     strategy:
       matrix:
         wfname: ['Retension_Workflow_run', 'CallCustomLocal', 'CallCustomActionFlow', 'TestActionFlow' ]
