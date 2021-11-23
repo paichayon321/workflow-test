@@ -17,16 +17,16 @@ on:
         required: true
         default: "10"
       workflow_name:
-        description: 'Workflow_name'
+        description: 'Force_Workflow_name'
         required: false
         default: ""
       ManualKeep:
-        description: 'ManualKeep'
+        description: 'Force_Keep'
         required: false
         default: "0"
 
 jobs:
-  Retension_ManualWorkflow:
+  Retension_Force_ManualFlow:
     if: ${{ github.event.inputs.workflow_name != '' }}
     runs-on: ubuntu-latest
     steps:
@@ -38,8 +38,8 @@ jobs:
           keep_minimum_runs: ${{ github.event.inputs.ManualKeep }}
           workflow_name: ${{ github.event.inputs.workflow_name }}
   
-  Retension_ActionFlowList:
-    if: ${{ github.event.inputs.minimumRunsToKeep != '' &&  github.event.inputs.workflow_name != '' }}
+  Retension_ManualFlow_Withlist:
+    if: ${{ github.event.inputs.minimumRunsToKeep != '' &&  github.event.inputs.workflow_name == '' }}
     strategy:
       matrix:
         wfname: ['Retension_Workflow_run', 'CallCustomLocal', 'CallCustomActionFlow', 'TestActionFlow' ]
@@ -53,7 +53,7 @@ jobs:
           keep_minimum_runs: ${{ github.event.inputs.minimumRunsToKeep }}
           workflow_name: ${{ matrix.wfname }}
           
-  Schedule_Retension_ActionFlowList:
+  Schedule_Retension_ManualFlow_Withlist:
     if: ${{ github.event.inputs.minimumRunsToKeep == '' }}
     strategy:
       matrix:
