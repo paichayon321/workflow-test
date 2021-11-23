@@ -6,9 +6,9 @@ on:
 #Set schedule
   schedule:
    # Every 5 min
-    - cron: '*/5 * * * *'
+   # - cron: '*/5 * * * *'
    # Every day at 0:00 
-   # - corn: '0 0 * * *'
+    - cron: '0 0 * * *'
 #Run Manual
   workflow_dispatch:
     inputs:
