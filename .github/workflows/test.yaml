@@ -42,11 +42,13 @@ jobs:
       - name: Step 5 - Run a one-line script
         run: cat ./temp.txt      
   
-      - name: Step 5 - Run a one-line script
+      - name: Step 6 - Run TextBanner 
         uses: paichayon321/action-textbanner@main
         with:
           banner_text: 'Hello Toom'
  
+      - name: Step 7 - Show Text Banner Result
+        run: cat ./banner.txt
         
                     
           
