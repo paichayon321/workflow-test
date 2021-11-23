@@ -3,20 +3,24 @@ name: Retension_Workflow_run
 # curl -H "Accept: application/vnd.github.v3+json"   https://api.github.com/repos/paichayon321/workflow-test/actions/runs |jq '.workflow_runs[] | .name,.id'
 
 on:
-  workflow_dispatch:
-    inputs:
-      minimumRunsToKeep:
-        description: 'Number of workflow runs to keep'
-        required: true
-        default: "10"
-      workflow_name:
-        description: 'Workflow_name'
-        required: false
-        default: ""
-      ManualKeep:
-        description: 'ManualKeep'
-        required: false
-        default: "0"
+#Set schedule
+  schedule:
+    - cron: '0 0 1 * *'
+#Run Manual
+#   workflow_dispatch:
+#     inputs:
+#       minimumRunsToKeep:
+#         description: 'Number of workflow runs to keep'
+#         required: true
+#         default: "10"
+#       workflow_name:
+#         description: 'Workflow_name'
+#         required: false
+#         default: ""
+#       ManualKeep:
+#         description: 'ManualKeep'
+#         required: false
+#         default: "0"
 
 jobs:
   Retension_ManualWorkflow:
