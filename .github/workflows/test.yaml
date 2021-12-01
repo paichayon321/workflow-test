@@ -33,33 +33,15 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-      - name: Step 4 - Run TextBanner 
+  Run_Text_Banner:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Step 1 -Call Action TextBanner 
         uses: paichayon321/action-textbanner@main
         with:
           banner_text: 'Hello Toom'
  
-      - name: Step 5 - Show Text Banner Result
+      - name: Step 2 - Show Text Banner Result
         run: cat ./banner.txt
         
-      - name: Send mail
-        if: always()
-        uses: dawidd6/action-send-mail@v3.6.0
-        with:
-    # mail server settings
-          server_address: smtp.gmail.com
-          server_port: 465
-    # user credentials
-          username: ${{ secrets.EMAIL_USERNAME }}
-          password: ${{ secrets.EMAIL_PASSWORD }}
-    # email subject
-          subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
-    # email body as text
-    #      body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
-          html_body: file://banner.txt
-    # comma-separated string, send email to
-          to: paichayon.t@g-able.com
-    # from email name
-          from: GithubAction Notify
-        
-                    
-          
+
