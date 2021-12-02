@@ -43,5 +43,21 @@ jobs:
  
       - name: Step 2 - Show Text Banner Result
         run: cat ./banner.txt
-        
+  Mail1:
+    runs-on: ubuntu-latest
+    steps:
+      - name: getHostName
+        run: hostname
+      - name: Send mail
+        if: always()
+        uses: dawidd6/action-send-mail@v2
+        with:
+          server_address: smtp.gmail.com
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: ${{ github.job }} job of ${{ github.repository }} has ${{ job.status }}
+          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+          to: paichayon.t@g-able.com
+          from: GithubAction Notify 
 
