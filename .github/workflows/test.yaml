@@ -66,6 +66,7 @@ jobs:
           from: GithubAction Notify 
   Mail1-1:
     runs-on: ubuntu-latest
+    needs: Mail1
     steps:
       - name: getHostName
         run: |
