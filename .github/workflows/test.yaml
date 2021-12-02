@@ -51,6 +51,7 @@ jobs:
           hostname
           export HOSTNAME=$(hostname)
           echo $HOSTNAME > hostname.txt
+          ip a
       - name: Send mail
         if: always()
         uses: dawidd6/action-send-mail@v3.6.0
