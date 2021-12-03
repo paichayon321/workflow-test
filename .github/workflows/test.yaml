@@ -33,16 +33,6 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
 
-  Run_Text_Banner:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Step 1 -Call Action TextBanner 
-        uses: paichayon321/action-textbanner@main
-        with:
-          banner_text: 'Hello Toom'
- 
-      - name: Step 2 - Show Text Banner Result
-        run: cat ./banner.txt
   Mail1:
     runs-on: ubuntu-latest
     steps:
