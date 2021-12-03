@@ -11,5 +11,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: $GITHUB_ACTION_PATH/script/myscript.sh ${{ inputs.scanMetadataReportFile  }}
+    - run: ./script/myscript.sh ${{ inputs.scanMetadataReportFile  }}
       shell: bash
