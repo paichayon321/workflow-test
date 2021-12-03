@@ -12,6 +12,7 @@ jobs:
       - name: Verify
         run: |
           env
+          ls -la
           pwd
           whoami
           
