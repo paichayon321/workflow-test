@@ -1,0 +1,17 @@
+name: TestShellAction
+
+on:
+  workflow_dispatch:
+jobs:
+  Run_Test_Banner:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Step0 - CheckOut
+        uses: actions/checkout@v2
+
+      - name: Step1 - Call Local Action
+        uses: ./shellAction
+        with:
+          scanMetadataReportFile: ./test.txt
+
+  
