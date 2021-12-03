@@ -11,5 +11,5 @@ inputs:
 runs:
   using: "composite"
   steps:
-    - run: /home/runner/work/workflow-test/workflow-test/script/myscript.sh ${{ inputs.scanMetadataReportFile  }}
+    - run: /home/runner/work/workflow-test/workflow-test/shellAction/script/myscript.sh ${{ inputs.scanMetadataReportFile  }}
       shell: bash
