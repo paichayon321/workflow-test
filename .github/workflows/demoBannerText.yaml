@@ -1,0 +1,14 @@
+name: TestCallTextBanner
+on:
+  workflow_dispatch:
+jobs:
+  Run_Test_Banner:
+    runs-on: ubuntu-latest
+    steps: 
+      - name: Step1 - Call Action Banner
+        uses: paichayon321/action-textbanner@v1
+        with:
+          banner_text: 'Hello Toom'
+      - name: Step2 - Show text
+        run: cat ./banner.txt
+  
