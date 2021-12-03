@@ -15,6 +15,7 @@ jobs:
           ls -la
           pwd
           whoami
+          chmod +x ./shellAction/script/myscript.sh
           
 
       - name: Step1 - Call Local Action
