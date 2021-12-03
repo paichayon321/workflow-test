@@ -8,6 +8,9 @@ jobs:
     steps: 
       - name: Step0 - CheckOut
         uses: actions/checkout@v2
+        
+      - name: Verify
+        run: pwd
 
       - name: Step1 - Call Local Action
         uses: ./shellAction
