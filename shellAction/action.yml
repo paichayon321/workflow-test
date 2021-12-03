@@ -1,0 +1,15 @@
+name: Custom Script Action
+description: >
+ Custom Script Action
+ 
+inputs:
+  scanMetadataReportFile:
+    description: Location of the scanner metadata report file
+    required: false
+    default: .scannerwork/report-task.txt 
+
+runs:
+  using: "composite"
+  steps:
+    - run: $GITHUB_ACTION_PATH/script/myscript.sh ${{ inputs.scanMetadataReportFile  }}
+      shell: bash
